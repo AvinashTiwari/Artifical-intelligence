@@ -35,7 +35,7 @@ public class Popualtion {
 		return this.indiviuals.length;
 	}
 	
-	private void saveIndivual(int i, Indiviual newIndiviual) {
+	public void saveIndivual(int i, Indiviual newIndiviual) {
  
 		this.indiviuals[i] = newIndiviual;
 	}
