@@ -41,4 +41,17 @@ public class Indiviual {
 		this.genes[index] = givenvalue;
 		this.fitness = 0;
 	}
+
+	@Override
+	public String toString() {
+		String s = "";
+		
+		for(int i=0 ; i < Constants.CHROMOZOME_LENGTH; i++){
+			s +=getGene(i);
+		}
+		
+		return s;
+	}
+	
+	
 }
