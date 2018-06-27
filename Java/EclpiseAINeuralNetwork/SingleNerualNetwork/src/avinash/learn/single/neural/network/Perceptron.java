@@ -33,6 +33,7 @@ public class Perceptron {
 				totalError = totalError +error;
 				for(int j =0 ; j < numberOfWeights; j++){
 					weights[j] = weights[j] +  learningrate * input[i][j] * error;
+					System.out.println("Updated Weight :" + weights[j]);
 				}
 			}
 		}
