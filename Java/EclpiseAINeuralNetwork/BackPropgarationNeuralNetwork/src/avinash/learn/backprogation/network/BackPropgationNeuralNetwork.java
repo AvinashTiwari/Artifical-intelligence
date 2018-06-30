@@ -25,7 +25,7 @@ public class BackPropgationNeuralNetwork {
 		return activation;
 	}
 	
-	public void train(float[] input ,float targetOuput , float learningRate , float momemtum){
+	public void train(float[] input ,float[] targetOuput , float learningRate , float momemtum){
 		float[] calculatedOutput = run(input);
 		float[] error = new float[calculatedOutput.length];
 		
@@ -33,8 +33,8 @@ public class BackPropgationNeuralNetwork {
 			error[i]= targetOuput[i] - calculatedOutput[i];
 		}
 		
-		for(int i=0; i < layers.length; i--){
-			error[i]= layers[i].train(error, learningRate, momemtum);
+		for(int i = layers.length-1; i>=0;i--){
+			error = layers[i].train(error, learningRate, momemtum);
 
 		}
 
