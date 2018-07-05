@@ -14,7 +14,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_view"
-        android:hint="@string/edit_number"/>
+        android:hint="@string/edit_number"
+        android:inputType="numberDecimal"/>
 
     <TextView
         android:id="@+id/text_view"
@@ -29,16 +30,17 @@
         android:textSize="20sp"/>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:onClick="pressButton"
+        android:text="predict"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/edit_text"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="predict"
-        android:textSize="20sp"
-        android:onClick="pressButton"
-        />
+        app:layout_constraintVertical_bias="0.733" />
 
 </android.support.constraint.ConstraintLayout>
