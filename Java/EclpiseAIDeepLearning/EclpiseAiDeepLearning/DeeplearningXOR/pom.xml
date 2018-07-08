@@ -12,10 +12,34 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<nd4j.version>1.0.0-alpha</nd4j.version>
 	</properties>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.nd4j/nd4j-api -->
+		<dependency>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-native-platform</artifactId>
+			<version>${nd4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-native</artifactId>
+			<version>${nd4j.version}</version>
+			<classifier>linux-x86_64-avx2</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-native</artifactId>
+			<version>${nd4j.version}</version>
+			<classifier>macosx-x86_64-avx2</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-native</artifactId>
+			<version>${nd4j.version}</version>
+			<classifier>windows-x86_64-avx2</classifier>
+		</dependency>
 		<dependency>
 			<groupId>org.nd4j</groupId>
 			<artifactId>nd4j-api</artifactId>
@@ -27,12 +51,20 @@
 			<artifactId>nd4j-jackson</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-core -->
-<dependency>
-    <groupId>org.deeplearning4j</groupId>
-    <artifactId>deeplearning4j-core</artifactId>
-    <version>0.9.1</version>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/org.nd4j/nd4j-backends -->
+		<dependency>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-backends</artifactId>
+			<version>0.9.1</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-core -->
+		<dependency>
+			<groupId>org.deeplearning4j</groupId>
+			<artifactId>deeplearning4j-core</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

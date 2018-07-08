@@ -63,7 +63,6 @@ public class App {
 		hiddenlayer.activation(Activation.SIGMOID);
 		hiddenlayer.weightInit(WeightInit.DISTRIBUTION);
 		hiddenlayer.dist(new UniformDistribution(0,1));
-
 		
 		DenseLayer.Builder hiddenlayer2 = new DenseLayer.Builder();
 		hiddenlayer2.nIn(4);
@@ -84,7 +83,7 @@ public class App {
 		
 		ListBuilder listBuilder = builder.list();
 		listBuilder.layer(0, hiddenlayer.build());
-		listBuilder.layer(1, hiddenlayer2.build());
+	   listBuilder.layer(1, hiddenlayer2.build());
 		listBuilder.layer(2, outputLayerBuilder.build());
 		listBuilder.pretrain(false);
 		
