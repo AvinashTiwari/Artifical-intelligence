@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Simple_Mnist_Android</string>
+    <string name="app_name">Simple_MNIST_Android</string>
+    <string name="image_view_content_description">Image of a digit</string>
+    <string name="predict_button_text">Predict Digit</string>
+    <string name="next_image_button_text">Load Next Image</string>
+    <string name="text_view_text">Display results here</string>
 </resources>
