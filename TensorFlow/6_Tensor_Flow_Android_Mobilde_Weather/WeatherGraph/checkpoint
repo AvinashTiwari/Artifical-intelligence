@@ -1,0 +1,2 @@
+model_checkpoint_path: "weather_prediction.ckpt"
+all_model_checkpoint_paths: "weather_prediction.ckpt"
