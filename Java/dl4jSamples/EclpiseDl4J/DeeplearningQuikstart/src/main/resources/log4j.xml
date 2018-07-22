@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p -- %m  Thr:[%-16t] %n"/>
+        </layout>
+    </appender>
+
+    <appender name="rootAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="logs/root.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p -- %m %n"/>
+        </layout>
+    </appender>
+
+    <appender name="dl" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="logs/dl.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m || Thr:[%-16t] %n"/>
+        </layout>
+    </appender>
+
+    <appender name="errorAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="logs/errors.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p -- %m Thr:[%-16t] %n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR"/>
+        </filter>
+    </appender>
+
+
+    <!-- ==================== L O G G E R S ===================== -->
+
+    <logger name="com.packt" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="dl"/>
+        <appender-ref ref="errorAppender"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </logger>
+
+    <logger name="org.spark-project" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="errorAppender"/>
+    </logger>
+
+    <logger name="org.apache.spark" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="errorAppender"/>
+    </logger>
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="rootAppender"/>
+        <appender-ref ref="errorAppender"/>
+    </root>
+
+</log4j:configuration>
