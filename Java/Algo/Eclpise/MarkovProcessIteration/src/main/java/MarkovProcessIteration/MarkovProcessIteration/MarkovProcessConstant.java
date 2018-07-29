@@ -9,7 +9,7 @@ public class MarkovProcessConstant {
 	public static double NUMER_OF_ITERATION = 100;
 	public static double EPLSION = 1e-7;
 	public static int NUM_ROWS = 3;
-	public static int NUM_COLS = 4;
+	public static int NUM_COLUMNS = 4;
 
 
 }
