@@ -1,0 +1,16 @@
+Build a simple stock market prediction model
+Given a stock name and a date, predict whether the price will go up or down the next day
+Data processing
+    - Retrieve data
+    - Format data
+    - Build data sets for training/testing
+Build the model
+    - Based on simple linear regression with raw tensorflow
+    - Build graph
+    - Train, test, and evaluate model
+    - Freeze graph with trained values
+Build the android app
+    - Set up the android project
+    - Build the UI
+    - Parse and process data
+    - Display results (price increase/decrease)
