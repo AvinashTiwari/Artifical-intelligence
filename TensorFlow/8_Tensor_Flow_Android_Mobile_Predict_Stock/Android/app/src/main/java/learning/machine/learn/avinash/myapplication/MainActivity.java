@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         String endDate = endDateEditText.getText().toString();
 
         String urlString = "https://marketdata.websol.barchart.com/getHistory.json?" +
-                "apikey=02cd306bc324ba16a64eeca25d6f5213&symbol=" +
+                "apikey=3843ebbe81a003184ce8b6662d7b5967&symbol=" +
                 stockSymbol + "&type=daily&startDate=" +
                 startDate + "&endDate=" + endDate;
         new JsonTask().execute(urlString);
