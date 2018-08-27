@@ -1,0 +1,2 @@
+model_checkpoint_path: "Titanic_prediction.ckpt"
+all_model_checkpoint_paths: "Titanic_prediction.ckpt"
