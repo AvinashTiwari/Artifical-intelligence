@@ -1,0 +1,40 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'avinash.learn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+
+
+repositories {
+	mavenCentral()
+}
+
+
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:26.1.0'
+   implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+   // https://mvnrepository.com/artifact/com.google.android/android
+compile group: 'com.google.android', name: 'android', version: '4.1.1.4'
+       compile group: 'org.bytedeco.javacpp-presets', name: moduleName + '-platform', version: moduleVersion + '-1.4.2'
+   
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
