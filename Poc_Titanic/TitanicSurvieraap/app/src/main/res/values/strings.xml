@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TitanicSurvier</string>
+    <string name="max_temp_text">Max temp higher than previous day?</string>
+    <string name="min_temp_text">Min temp higher than previous day?</string>
+    <string name="mean_temp_text">Mean temp higher than previous day?</string>
+    <string name="precip_text">Precipitation higher than previous day?</string>
+    <string name="button_text">Predict temperature</string>
+    <string name="results_text">Display results</string>
+</resources>
