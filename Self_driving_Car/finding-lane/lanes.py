@@ -13,13 +13,15 @@ def region_of_interset(image):
     polygon = np.array([[(200,height),(1100, height), (550,250)]])
     mask = np.zeros_like(image)
     cv2.fillPoly(mask,polygon,255)
-    return mask;
+    masked_image = cv2.bitwise_and(image, mask)
+    return masked_image;
 
 
 image = cv2.imread('test_image.jpg')
 lang_image = np.copy(image)
 canny = canny(lang_image)
-cv2.imshow('result',region_of_interset(canny))
+cropped_image = region_of_interset(canny)
+cv2.imshow('result',cropped_image)
 #plt.imshow(canny)
 #plt.show()
 cv2.waitKey(0)
