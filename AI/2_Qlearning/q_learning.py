@@ -31,6 +31,7 @@ R = np.array([[0,1,0,0,0,0,0,0,0,0,0,0],
               [0,0,0,0,0,0,0,1,0,0,1,0]])
 
 Q = np.array(np.zeros([12,12]))
+state_to_location = {state: location for location, state in location_to_state.items()}
 
 for i in range(1000):
     current_state = np.random.randint(0,12)
@@ -52,3 +53,6 @@ def route(starting_location, ending_location):
         route.append(next_location)
         starting_location = next_location
     return route
+
+print('Route:')
+print(route('E', 'G'))
