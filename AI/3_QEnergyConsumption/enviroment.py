@@ -46,4 +46,20 @@ class Enviroment(object):
         self.reward = energy_noai - energy_ai
         self.reward = 1e-3 * self.reward 
         
+        self.atmospheric_temperature = self.monthly_atmospheric_temperatures[month]
+        self.current_number_user += np.random.randint(-self.max_update_users,self.max_update_users)
+        if(self.current_number_user > self.max_number_users):
+            self.current_number_user  =  self.max_number_users
+        elif(self.current_number_user < self.min_number_users):
+            self.current_number_user  =  self.min_number_users
+        
+        self.current_rate_data += np.random.randint(-self.max_update_data,self.max_update_data)
+        if(self.current_rate_data > self.max_rate_data):
+            self.current_rate_data  =  self.max_rater_data
+        elif(self.current_rater_data < self.min_rate_data):
+            self.current_rate_data  =  self.min_rate_data
+        
+            
+            
+        
         
