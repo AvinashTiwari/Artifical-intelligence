@@ -59,6 +59,19 @@ class Enviroment(object):
         elif(self.current_rater_data < self.min_rate_data):
             self.current_rate_data  =  self.min_rate_data
         
+        past_intrinsic_temperature = self.instrinsic_temperature
+        self.instrinsic_temperature = self.atmospheric_temperature + 1.25 * self.current_number_user + 1.25 * self.current_rate_data
+        delta_instrinsic_temperature = self.instrinsic_temperature - past_intrinsic_temperature
+        
+        if(direction == -1):
+            delta_temperature = -energy_ai
+        elif(direction == 1):
+            delta_temperature = energy_ai
+            
+            
+        self.temperature_ai += delta_instrinsic_temperature + delta_temperature
+        
+        self.temperature_noai += delta_instrinsic_temperature
             
             
         
