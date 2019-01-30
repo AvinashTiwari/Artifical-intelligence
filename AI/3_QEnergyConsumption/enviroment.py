@@ -20,6 +20,7 @@ class Enviroment(object):
         self.min_rate_data = 20
         self.max_rate_data = 300
         self.max_update_data = 10
+        self.max_temperature = 100
         self.initial_number_user = initial_number_users
         self.current_number_user = initial_number_users
         self.initial_rate_data = initial_rate_data
@@ -72,6 +73,27 @@ class Enviroment(object):
         self.temperature_ai += delta_instrinsic_temperature + delta_temperature
         
         self.temperature_noai += delta_instrinsic_temperature
+        
+        if(self.temperature_ai < self.min_temperature):
+            if(self.train == 1):
+                self.game_over = 1
+            else:
+                self.temperature_ai = self.optimal_temperature[0]
+                self.total_enegry_ai += self.optimal_temperature[0] - self.temperature_ai 
+        elif(self.temperature_ai > self.max_temperature):
+            if(self.train == 1):
+                self.game_over = 1
+            else:
+                self.temperature_ai = self.optimal_temperature[1]
+                self.total_enegry_ai += self.optimal_temperature[1] - self.temperature_ai 
+                
+                
+            
+            
+            
+            
+                
+            
             
             
         
