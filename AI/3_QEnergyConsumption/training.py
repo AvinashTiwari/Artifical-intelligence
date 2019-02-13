@@ -64,4 +64,28 @@ if (env.train):
                 else:
                     direction = 1
                     
+                energy_ai = abs(action - direction_boundary) * temperature_step
+            next_state, reward, game_over = env.update_env(direction,
+                                                           energy_ai,
+                                                           int(timestep / (30*24*60)))
+            total_reward += reward
+            dqn.remember([current_state, action, reward, next_state], game_over)
+            inputs, targets = dqn.get_batch(model, batch_size = batch_size)
+            loss += model.train_on_batch(inputs, targets)
+            timestep += 1
+            current_state = next_state
+            print("\n")
+            print("Epoch: {:03d}/{:03d}".format(epoch, number_epochs))
+            print("Total Energy spent with an AI: {:.0f}".format(env.total_energy_ai))
+            print("Total Energy spent with no AI: {:.0f}".format(env.total_energy_noai))
+            if (early_stopping):
+                if (total_reward <= best_total_reward):
+                    patience_count += 1
+                elif (total_reward > best_total_reward):
+                    best_total_reward = total_reward
+                    patience_count = 0
+                if (patience_count >= patience):
+                    print("Early Stopping")
+                    break
+                model.save("model.h5")
                 
