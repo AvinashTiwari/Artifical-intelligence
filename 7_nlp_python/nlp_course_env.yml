@@ -1,4 +1,4 @@
-name: nlp_course
+name: nlp_courses
 channels:
   - defaults
 dependencies:
