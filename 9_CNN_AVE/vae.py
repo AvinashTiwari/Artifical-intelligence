@@ -30,5 +30,10 @@ class ConVAE(object):
             h = tf.layers.conv2d(h,128,4,strides=2, activation=tf.nn.relu, name="enc_conv3")
             h = tf.layers.conv2d(h,256,4,strides=2, activation=tf.nn.relu, name="enc_conv4")
             h = tf.reshape(h,[-1,2*2*256])
+            self.mu = tf.layers.dense(h,self.z_size, name="enc_fc_mu")
+            self.logvar = tf.layers.dense(h,self.z_size, name="enc_fc_logvar")
+            self.sigma = tf.exp(self.logvar / 2.0)
+            self.epsilon = tp.random_normal([self.batch_size,self.z_size])
+            self.z = self.mu + self.sigma * self.epsilon
             
         
