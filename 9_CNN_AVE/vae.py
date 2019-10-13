@@ -41,5 +41,18 @@ class ConVAE(object):
             h = tf.layers.conv2d_transpose(h,64,5,strides=2,activation=tf.nn.relu,name="dec_deconv2")
             h = tf.layers.conv2d_transpose(h,32,6,strides=2,activation=tf.nn.relu,name="dec_deconv3")
             self.y = tf.layers.conv2d_transpose(h,6,6,strides=2,activation=tf.nn.relu,name="dec_deconv4")
+            if self.is_training:
+                self.global_step = tf.Variable(0, name='global_step', trainable=False)
+                self.r_loss = tf.reduce_sum(tf.square(self.x - self.y),reduction_indices= [1,2,3])
+                self.r_loss = tf.reduce_mean(self.r_loss)
+                self.kl_loss = -0.5 * tf.reduce_sum(1 + self.logvar - tf.square(self.mu) - tf.exp(self.logvar), reduction_indices=1)
+                self.kl_loss = tf.maximum(self.kl_loos, self.kl_tolerance * self.z_size)
+                self.kl_loss = tf.reduce_mean(self.kl_loos)
+                self.loss = self.r_loss + self.kl_loss 
+                self.lr = tf.Variable(self.learning_rate , trainable=False)
+                self.optimizer = tf.train.AdamOptimizer(self.lr)
+                grads = self.optimizer.compute_gradients(self.loss)
+                self.train_op = self.optimizer.apply_gradients(grads,global_step=self.global_step, name="train_step")
+            self.init = tf.global_variables_initializer()
             
         
