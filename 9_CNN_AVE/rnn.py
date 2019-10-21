@@ -27,3 +27,11 @@ class MDNRNN(object):
     
     # Making a method that creates the MDNRNN model architecture itself
     def _build_model(self,hps):
+        self.num_mixture = hps.num_mixture
+        KMIX = self.num_mixture
+        INWIDTH = hps.input_seq_width
+        OUTWIDTH = hps.output_seq_width
+        LENGTH = hps.max_seq_length
+        if hps.is_training:
+            self.global_step = tf.Variable(0, name='global_step', trainable=False)
+            
