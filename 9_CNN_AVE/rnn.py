@@ -34,4 +34,20 @@ class MDNRNN(object):
         LENGTH = hps.max_seq_length
         if hps.is_training:
             self.global_step = tf.Variable(0, name='global_step', trainable=False)
+        cell_fn = tf.contrib.rnn.LayerNormalBasicLSTMCell
+        user_recurrent_dropout = False if self.hps.use_recurrent_dropout == 0 else True
+        user_input_dropout = False if self.hps.use_input_dropout == 0 else True
+        user_output_dropout = False if self.hps.use_output_dropout == 0 else True
+        use_layer_norm = False if self.hps.use_layer_norm == 0 else True
+        if(user_recurrent_dropout):
+            cell = cell_fn(hps.rnn_size, layer_norm=use_layer_norm, dropout_keep_prob=self.hps.recurrent_dropout_prob)
+        else:
+            cell = cell_fn(hps.rnn_size, layer_norm=use_layer_norm)
+            
+        if(user_input_dropout):
+            cell = tf.nn.rnn_cell.DropoutWrapper(cell,input_keep_prob=self.hps.input_dropout_prob)
+        if(user_output_dropout):
+            cell = tf.nn.rnn_cell.DropoutWrapper(cell,output_keep_prob=self.hps.output_dropout_prob)
+        self.cell = cell
+            
             
