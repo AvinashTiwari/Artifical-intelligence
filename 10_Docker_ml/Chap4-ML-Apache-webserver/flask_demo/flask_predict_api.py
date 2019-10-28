@@ -12,7 +12,7 @@ from flasgger import Swagger
 import numpy as np
 import pandas as pd
 
-with open('./rf.pkl', 'rb') as model_file:
+with open('/var/www/flask_predict_api/rf.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
 app = Flask(__name__)
