@@ -1,0 +1,3 @@
+>conda create -n chatbot python=3.5 anaconda
+
+conda activate chatbot
