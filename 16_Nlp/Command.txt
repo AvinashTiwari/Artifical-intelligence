@@ -1,3 +1,5 @@
 >conda create -n chatbot python=3.5 anaconda
 
 conda activate chatbot
+
+pip install tensorflow==1.0.0
