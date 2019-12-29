@@ -1,3 +1,4 @@
+import os
 import pathlib
 
 import regression_model
@@ -17,10 +18,6 @@ DATASET_DIR = PACKAGE_ROOT / 'datasets'
 TESTING_DATA_FILE = 'test.csv'
 TRAINING_DATA_FILE = 'train.csv'
 TARGET = 'SalePrice'
-
-# logs
-LOG_DIR = PACKAGE_ROOT / 'logs'
-LOG_DIR.mkdir(exist_ok=True)
 
 
 # variables
@@ -69,3 +66,6 @@ CATEGORICAL_NA_NOT_ALLOWED = [
 
 PIPELINE_NAME = 'lasso_regression'
 PIPELINE_SAVE_FILE = f'{PIPELINE_NAME}_output_v'
+
+# used for differential testing
+ACCEPTABLE_MODEL_DIFFERENCE = 0.05
